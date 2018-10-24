@@ -1,0 +1,64 @@
+{
+  "name": "redux-thunk-tools",
+  "version": "0.0.1",
+  "description": "Tools for coding with redux-thunk",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "test": "BABEL_ENV=test jest",
+    "build:cjs": "BABEL_ENV=cjs babel ./src -d ./lib",
+    "build:es": "BABEL_ENV=es babel ./src -d ./es",
+    "build:prepare": "rm -rf ./lib; rm -rf ./es",
+    "build": "npm run build:prepare; npm run build:cjs && npm run build:es"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DScheglov/redux-thunk-tools.git"
+  },
+  "keywords": [
+    "redux",
+    "thunk",
+    "decorators",
+    "async",
+    "parallel",
+    "chain",
+    "all",
+    "lazy",
+    "connected",
+    "onlyIf",
+    "loading",
+    "postponded",
+    "single",
+    "withFallback"
+  ],
+  "author": "Dmitry.Scheglov <dmitry.scheglov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DScheglov/redux-thunk-tools/issues"
+  },
+  "homepage": "https://github.com/DScheglov/redux-thunk-tools#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "eslint": "^5.7.0",
+    "eslint-plugin-jest": "^21.26.0",
+    "jest": "^23.6.0",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.3",
+    "redux-thunk": "^2.3.0"
+  },
+  "peerDependencies": {
+    "redux": "*",
+    "redux-thunk": "*"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
+  }
+}

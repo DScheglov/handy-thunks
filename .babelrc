@@ -1,0 +1,70 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env", {
+            "targets": {
+              "browsers": [
+                "last 2 versions",
+                "ie 10",
+                "ie 11",
+                "safari >= 7"
+              ]
+            },
+            "loose": true,
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    },
+    "cjs": {
+      "presets": [
+        [
+          "env", {
+            "targets": {
+              "browsers": [
+                "last 2 versions",
+                "ie 10",
+                "ie 11",
+                "safari >= 7"
+              ]
+            },
+            "loose": true,
+            "modules": "commonjs"
+          }
+        ]
+      ]
+    },
+    "es": {
+      "presets": [
+        [
+          "env", {
+            "targets": {
+              "browsers": [
+                "last 2 versions",
+                "ie 10",
+                "ie 11",
+                "safari >= 7"
+              ]
+            },
+            "loose": true,
+            "modules": false
+          }
+        ]
+      ],
+      "plugins": [
+        "transform-object-rest-spread",
+        [
+          "transform-runtime",
+          {
+            "corejs": false,
+            "helpers": false,
+            "regenerator": false,
+            "useESModules": true
+          }
+        ]
+      ]
+    }
+  }
+}
