@@ -1,1 +1,1 @@
-import { queue } from 'redux-thunk-tools';
+import { queue } from 'handy-thunks';

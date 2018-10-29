@@ -1,1 +1,1 @@
-import { connected } from 'redux-thunk-tools';
+import { connected } from 'handy-thunks';

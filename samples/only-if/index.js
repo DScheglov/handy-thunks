@@ -1,1 +1,1 @@
-import { onlyIf, connected } from 'redux-thunk-tools';
+import { onlyIf, connected } from 'handy-thunks';

@@ -1,1 +1,1 @@
-import { chain } from 'redux-thunk-tools';
+import { chain } from 'handy-thunks';

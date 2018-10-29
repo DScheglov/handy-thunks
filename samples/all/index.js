@@ -1,2 +1,2 @@
-import { all } from 'redux-thunk-tools';
+import { all } from 'handy-thunks';
 

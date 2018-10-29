@@ -1,11 +1,11 @@
-# redux-thunk-tools
+# handy-thunks
 
 Tools for coding with `redux-thunks`
 
 ## Installation
 
 ```shell
-npm i redux-thunk-tools
+npm i handy-thunks
 ```
 
 ## Overview
@@ -36,7 +36,7 @@ The package provides easy way to enhance and compose `thunks` in order to build 
 **./src/flows.js** (*complicated thunks*):
 ```js
 import { compose } from 'redux';
-import { queue, all, connected, loading } from 'redux-thunk-tools';
+import { queue, all, connected, loading } from 'handy-thunks';
 
 import { getUser } from './store/users';
 import { loadUser, loadContracts, loadOffers } from './thunks';

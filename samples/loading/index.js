@@ -1,1 +1,1 @@
-import { loading } from 'redux-thunk-tools';
+import { loading } from 'handy-thunks';
