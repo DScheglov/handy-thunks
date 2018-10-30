@@ -36,12 +36,12 @@ The package provides easy way to create, enhance and compose `thunks` in order t
 
 ## Example:
 
-**https://github.com/DScheglov/handy-thunks/tree/master/src/flows.js** (*complicated thunks*):
+**./src/flows.js** (*complicated thunks*):
 ```js
 import { queue, all, connected, loading } from 'handy-thunks';
 
-import { getUser } from 'https://github.com/DScheglov/handy-thunks/tree/master/store/users';
-import { loadUser, loadContracts, loadOffers } from 'https://github.com/DScheglov/handy-thunks/tree/master/thunks';
+import { getUser } from './store/users';
+import { loadUser, loadContracts, loadOffers } from './thunks';
 
 
 const withUserId = connected(state => getUser(state).id);
@@ -58,13 +58,13 @@ const fetchUserData = queue([
 export default withLoading(fetchUserData);
 ```
 
-**https://github.com/DScheglov/handy-thunks/tree/master/src/thunks.js** (*simple thunks*):
+**./src/thunks.js** (*simple thunks*):
 ```js
 import { compose } from 'redux';
-import api from 'https://github.com/DScheglov/handy-thunks/tree/master/api';
-import { saveUser, readUser } from 'https://github.com/DScheglov/handy-thunks/tree/master/store/users';
-import { saveUserContracts, readContracts } from 'https://github.com/DScheglov/handy-thunks/tree/master/store/contracts';
-import { saveUserOffers, readOffers } from 'https://github.com/DScheglov/handy-thunks/tree/master/store/offers';
+import api from './api';
+import { saveUser, readUser } from './store/users';
+import { saveUserContracts, readContracts } from './store/contracts';
+import { saveUserOffers, readOffers } from './store/offers';
 
 export const loadUser = () => dispatch => api()
   .get('/user')
