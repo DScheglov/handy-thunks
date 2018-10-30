@@ -1,6 +1,6 @@
 # handy-thunks
 
-Tools for coding with `redux-thunks`
+Tools for coding with `redux-thunk`
 
 ## Installation
 
@@ -10,32 +10,34 @@ npm i handy-thunks
 
 ## Overview
 
-The package provides easy way to enhance and compose `thunks` in order to build flow of any complexity by using following tools:
+The package provides easy way to create, enhance and compose `thunks` in order to build flow of any complexity by using following tools:
 
-### 1. Flow compositors:
-   - [`all(arrayOfThunks)`](#all) - creates new thunk that runs base thunks in parallel
-   - [`queue(arrayOfThunks)`](#queue) - creates new thunk that runs base thunks one by one with arguments of new thunk
-   - [`chain(arrayOfThunks)`](#chain) - create new thunk that runs base thunks one by one and passes the result of previous thunk to the next one
+### [1. Thunk creators](#creators):
+   - `createThunk(actionCreators, selectors)(func)`
+   - `voidThunk`
 
-### 2. Thunk decorators:
-   - [`connected(...selectors)(thunk)`](#connected)
-   - [`loading(startAction, endAction)(thunk)`](#loading)
-   - [`fallback(fallbackThunk)(thunk)`](#fallback)
-   - [`onlyIf(predicate)(thunk)`](#only-if)
-   - [`chained(keySelector)(thunk)`](#chained)
-   - [`single(keySelector)(thunk)`](#single)
-   - [`postponded(keySelector)(thunk)`](#postponded)
-   - [`lazy(thunk)`](#lazy)
+### [2. Flow compositors](#compositors):
+   - `all(arrayOfThunks)`
+   - `queue(arrayOfThunks)`
+   - `chain(arrayOfThunks)`
 
-### 3. Other helpers:
-  - [`voidThunk`](#void-thunk)
+### [3. Thunk decorators](#decorators):
+   - `connected(selector)(thunk)`
+   - `loading(startAction, endAction)(thunk)`
+   - `fallback(fallbackThunk)(thunk)`
+   - `cleanUp(cleanUpThunk)(thunk)`
+   - `onlyIf(predicate)(thunk)`
+   - `chained(keySelector)(thunk)`
+   - `single(keySelector)(thunk)`
+   - `postponded(keySelector)(thunk)`
+   - `lazy(thunk)`
+
 
 
 ## Example:
 
 **./src/flows.js** (*complicated thunks*):
 ```js
-import { compose } from 'redux';
 import { queue, all, connected, loading } from 'handy-thunks';
 
 import { getUser } from './store/users';
@@ -43,7 +45,7 @@ import { loadUser, loadContracts, loadOffers } from './thunks';
 
 
 const withUserId = connected(state => getUser(state).id);
-const withLoading = loading(startLoading, endLoading);
+const withLoading = loading(startLoading, endLoading)('ALL');
 
 const fetchUserData = queue([
   loadUser,

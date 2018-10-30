@@ -1,1 +1,1 @@
-# `connected(...selectors)(thunk)`
+# `connected(selector)(thunk)`

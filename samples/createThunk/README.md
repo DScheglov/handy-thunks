@@ -1,0 +1,1 @@
+# `createThunk(actionCreators, selectors)(thunk)`

@@ -17,3 +17,5 @@ export const ensurePromise = fn => (...args) => {
     return ensureRjected(err);
   }
 };
+
+export const callWith = args => func => func(...args);

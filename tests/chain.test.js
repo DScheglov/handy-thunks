@@ -2,8 +2,8 @@ import { createAction } from 'redux-actions';
 
 import chain from '../src/chain';
 
-import createAsyncThunk from './__utils__/create-thunk';
-import createStore from './__utils__/create-store';
+import createAsyncThunk from './__utils__/createAsyncThunk';
+import createStore from './__utils__/createStore';
 import manage from './__utils__/managed';
 
 describe('flow.chain', () => {

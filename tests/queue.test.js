@@ -2,8 +2,8 @@ import { createAction } from 'redux-actions';
 
 import queue from '../src/queue';
 
-import createAsyncThunk from './__utils__/create-thunk';
-import createStore from './__utils__/create-store';
+import createAsyncThunk from './__utils__/createAsyncThunk';
+import createStore from './__utils__/createStore';
 import manage from './__utils__/managed';
 
 describe('flow.queue', () => {
