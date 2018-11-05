@@ -1,3 +1,5 @@
+import { compose } from 'redux';
+
 export const isPromise = value => (
   value != null && typeof value.then === 'function'
 );
@@ -17,3 +19,5 @@ export const ensureAsync = fn => (...args) => {
     return ensureRejected(err);
   }
 };
+
+export const ensureAsyncCompose = compose(ensureAsync, compose);
