@@ -1,4 +1,4 @@
-const all = thunks => (...args) => dispatch => Promise.all(
+const all = (...thunks) => (...args) => dispatch => Promise.all(
   thunks.map(
     thunk => dispatch(thunk(...args))
   )

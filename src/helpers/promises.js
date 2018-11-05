@@ -6,16 +6,14 @@ export const ensureResolved = value => (
   isPromise(value) ? value : Promise.resolve(value)
 );
 
-export const ensureRjected = value => (
+export const ensureRejected = value => (
   isPromise(value) ? value : Promise.reject(value)
 );
 
-export const ensurePromise = fn => (...args) => {
+export const ensureAsync = fn => (...args) => {
   try {
     return ensureResolved(fn(...args));
   } catch (err) {
-    return ensureRjected(err);
+    return ensureRejected(err);
   }
 };
-
-export const callWith = args => func => func(...args);

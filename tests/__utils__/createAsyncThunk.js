@@ -1,9 +1,10 @@
 import { compose } from 'redux';
+import { ensureAsync, ensureRejected } from '../../src/helpers/promises';
 
 const createAsyncThunk = (asyncFn, successAction, failAction) => (...args) => dispatch => (
-  asyncFn(...args)
+  ensureAsync(asyncFn)(...args)
     .then(compose(dispatch, successAction))
-    .catch(compose(dispatch, failAction))
+    .catch(compose(ensureRejected, dispatch, failAction))
 );
 
 export default createAsyncThunk;

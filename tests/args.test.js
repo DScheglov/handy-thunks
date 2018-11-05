@@ -1,4 +1,4 @@
-import { arg } from '../src/args';
+import { arg } from '../src/helpers/args';
 
 describe('helpers.arg', () => {
   test('it should return a function', () => {

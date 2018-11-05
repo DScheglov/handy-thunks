@@ -1,10 +1,11 @@
 import { createAction } from 'redux-actions';
 
-import createStore from './__utils__/createStore';
 import createThunk from '../src/createThunk';
+import idX from '../src/helpers/idX';
+
+import createStore from './__utils__/createStore';
 import createAsyncThunk from './__utils__/createAsyncThunk';
 import manage from './__utils__/managed';
-import idX from '../src/idX';
 
 describe('creators.createThunk', () => {
   test('it should create a thunk with getState and dispatch', () => {

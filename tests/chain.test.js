@@ -296,4 +296,34 @@ describe('flow.chain', () => {
 
     return promise;
   });
+
+  test('new thunk should rejected if one of origin thunks are rejected', () => {
+    expect.assertions(1);
+
+    const success1 = createAction('SUCCESS::1');
+    const success2 = createAction('SUCCESS::2');
+    const fail = createAction('FAIL');
+
+    const fn1 = manage(x => x);
+    const fn2 = manage(x => x);
+
+    const thunk1 = jest.fn(createAsyncThunk(fn1, success1, fail));
+    const thunk2 = jest.fn(createAsyncThunk(fn2, success2, fail));
+
+    const newThunk = chain([thunk1, thunk2]);
+
+    const { dispatch } = createStore();
+
+    let promise = dispatch(newThunk('first'));
+
+    setImmediate(
+      fn1.reject.bind(null, { })
+    );
+
+    return promise.catch(
+      err => {
+        expect(err).toEqual({ type: 'FAIL' });
+      }
+    );
+  });
 });

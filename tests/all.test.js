@@ -25,7 +25,7 @@ describe('flow.all', () => {
       createAsyncThunk(fn2, success2, fail)
     );
 
-    const newThunk = all([thunk1, thunk2]);
+    const newThunk = all(thunk1, thunk2);
 
     const { dispatch, getState } = createStore();
 
@@ -75,7 +75,7 @@ describe('flow.all', () => {
     const action1 = createAction('ACTION::1');
     const action2 = createAction('ACTION::2');
 
-    const newThunk = all([action1, action2]);
+    const newThunk = all(action1, action2);
 
     const { dispatch, getState } = createStore();
 
@@ -120,7 +120,7 @@ describe('flow.all', () => {
     const thunk1 = createAsyncThunk(fn1, success1, fail);
     const thunk2 = createAsyncThunk(fn2, success2, fail);
 
-    const newThunk = all([thunk1, thunk2, regularAction]);
+    const newThunk = all(thunk1, thunk2, regularAction);
 
     const { dispatch, getState } = createStore();
 
@@ -164,4 +164,40 @@ describe('flow.all', () => {
 
     return promise;
   });
+
+  test('created thunk should return promise that will reject if one of original thunks promises have been rejected', () => {
+    expect.assertions(1);
+
+    const success1 = createAction('SUCCESS::1');
+    const success2 = createAction('SUCCESS::2');
+    const fail = createAction('FAIL');
+
+    const fn1 = manage(x => x);
+    const fn2 = manage(x => x);
+
+    const thunk1 = createAsyncThunk(fn1, success1, fail);
+    const thunk2 = createAsyncThunk(fn2, success2, fail);
+
+    const newThunk = all(thunk1, thunk2);
+
+    const { dispatch } = createStore();
+
+    let promise = dispatch(newThunk('reject'));
+
+    setImmediate(
+      () => {
+        fn1.resolve();
+        fn2.reject({ result: 'reject::2' });
+      }
+    );
+
+    promise = promise.catch(
+      err => {
+        expect(err).toEqual({ type: 'FAIL', payload: 'reject::2' });
+      }
+    );
+
+    return promise;
+  });
+
 });
