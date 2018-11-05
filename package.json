@@ -60,5 +60,9 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "tag": "betta"
   }
 }
