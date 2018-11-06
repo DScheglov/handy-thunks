@@ -14,23 +14,21 @@ npm i handy-thunks
 
 The package provides easy way to create, enhance and compose `thunks` in order to build flow of any complexity by using following tools:
 
-### 1. **Thunk** creators:
 
-| Creator |
+|<h3>**1. Thunk creators**</h3>|
 |---------|
 | [createThunk(actionCreators, selectors)(func)](https://github.com/DScheglov/handy-thunks/tree/master/samples/create-thunk) <br/>creates a new **thunk** based on regular or async function |
 | [voidThunk](https://github.com/DScheglov/handy-thunks/tree/master/samples/void-thunk) <br/>creates a **thunk** that do nothing |
 
-### 2. Flow compositors:
-| Compositor |
+
+|<h3>**2. Flow compositors**</h3>|
 |------------|
 | [all(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/all) <br/>creates a new **thunk** that runs base thunks in parallel |
 | [queue(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/queue) <br/>creates a new **thunk** that runs base thunks one by one with arguments of new thunk |
 | [chain(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chain) <br/>creates a new **thunk** that runs base thunks one by one and passes the result of previous **thunk** to the next one |
 
 
-### 3. **Thunk** decorators:
-| Decorator |
+|<h3>**3. Thunk decorators**</h3>|
 |-----------|
 | [connected(selector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/connected) <br/>creates a new **thunk** that dispatches the original one with result returned be specified selector |
 | [loading(startAction, endAction)(...loadingArgs)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/loading) <br/>creates a new **thunk** that dispatches `startAction` before calling original **thunk** and `endAction` after the promise returned by original **thunk** resolves or rejects. |
