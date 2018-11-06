@@ -28,11 +28,13 @@ const manage = fn => {
   managed.resolve = resultObj => {
     if (!_promise) createPromise(fn, []);
     _resolve(resultObj);
+    return _promise;
   };
 
   managed.reject = resultObj => {
     if (!_promise) createPromise(fn, []);
     _reject(resultObj);
+    return _promise;
   };
 
   managed.isResolved = () => (

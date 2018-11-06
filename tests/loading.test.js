@@ -34,7 +34,7 @@ describe('decorators.loading', () => {
     expect(
       getState().allActions
     ).toEqual([
-      { type: 'START' }
+      { type: 'START' },
     ]);
 
     setImmediate(
@@ -48,7 +48,7 @@ describe('decorators.loading', () => {
         ).toEqual([
           { type: 'START' },
           { type: 'ACTION' },
-          { type: 'END' }
+          { type: 'END' },
         ]);
       }
     );
@@ -83,7 +83,7 @@ describe('decorators.loading', () => {
           getState().allActions
         ).toEqual([
           { type: 'ACTION' },
-          { type: 'END' }
+          { type: 'END' },
         ]);
       }
     );
@@ -107,7 +107,7 @@ describe('decorators.loading', () => {
     expect(
       getState().allActions
     ).toEqual([
-      { type: 'START' }
+      { type: 'START' },
     ]);
 
     setImmediate(
@@ -120,7 +120,7 @@ describe('decorators.loading', () => {
           getState().allActions
         ).toEqual([
           { type: 'START' },
-          { type: 'ACTION' }
+          { type: 'ACTION' },
         ]);
       }
     );
@@ -144,28 +144,22 @@ describe('decorators.loading', () => {
     expect(
       getState().allActions
     ).toEqual([
-      { type: 'START' }
+      { type: 'START' },
     ]);
 
     setImmediate(
-      () => managed.reject({ result: new Error('Some Error') })
-    );
-
-    const p = promise.catch(
-      err => {
-        expect(err).toBeInstanceOf(Error);
-        expect(err.message).toBe('Some Error');
+      () => {
+        managed.reject({ result: new Error('Some Error') });
       }
     );
 
-    // eslint-disable-next-line
-    p.catch(console.log); // suppressing Unhandled exception warning
-
-    return p.then(
-      () => {
+    return promise.catch(
+      err => {
+        expect(err).toBeInstanceOf(Error);
+        expect(err.message).toBe('Some Error');
         expect(getState().allActions).toEqual([
           { type: 'START' },
-          { type: 'END' }
+          { type: 'END' },
         ]);
       }
     );
