@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
-    "test": "BABEL_ENV=test jest --coverage",
+    "test": "BABEL_ENV=test jest --coverage && ./.coveralls.sh",
     "build:cjs": "BABEL_ENV=cjs babel ./src -d ./lib",
     "build:es": "BABEL_ENV=es babel ./src -d ./es",
     "build:prepare": "rm -rf ./lib; rm -rf ./es",
@@ -43,6 +43,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
+    "coveralls": "^3.0.2",
     "eslint": "^5.7.0",
     "eslint-plugin-jest": "^21.26.0",
     "jest": "^23.6.0",
