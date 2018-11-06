@@ -2,16 +2,16 @@
 
 ```js
 type ActionCreators = 
-  dispatch: Dispatch => { [string]: (...args: mixed[]) => mixed } |
-  { [string]: (...args: mixed[]) => mixed }
+  dispatch: Dispatch => { [string]: (...args: any[]) => any } |
+  { [string]: (...args: any[]) => any }
 ;
 
 type GetState = <S>() => S;
 
-type Selector = <S>(state: S, ...args: mixed[]) => mixed;
+type Selector = <S>(state: S, ...args: any[]) => any;
 
 type Selectors = 
-  { getState: GetState<S> => mixed } |
+  { getState: GetState<S> => any } |
   Array<Selector> |
   { [string]: Selector }
 ;

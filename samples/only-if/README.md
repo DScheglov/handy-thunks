@@ -1,7 +1,7 @@
 # `onlyIf(predicate)(thunk)`
 
 ```js
-type Predicate: (...args: Array<*>): mixed;
+type Predicate: (...args: any[]) => any;
 
 onlyIf(predicate: Predicate)(thunk: Thunk|Action): Thunk;
 ```
