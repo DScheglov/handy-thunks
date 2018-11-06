@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/DScheglov/handy-thunks.svg?branch=master)](https://travis-ci.org/DScheglov/handy-thunks)
-[![Coverage Status](https://coveralls.io/repos/github/DScheglov/handy-thunks/badge.svg?branch=master)](https://coveralls.io/github/DScheglov/handy-thunks?branch=master)
-# handy-thunks
+# handy-thunks &middot; [![Build Status](https://travis-ci.org/DScheglov/handy-thunks.svg?branch=master)](https://travis-ci.org/DScheglov/handy-thunks) [![Coverage Status](https://coveralls.io/repos/github/DScheglov/handy-thunks/badge.svg?branch=master)](https://coveralls.io/github/DScheglov/handy-thunks?branch=master) [![npm version](https://img.shields.io/npm/v/handy-thunks.svg?style=flat-square)](https://www.npmjs.com/package/handy-thunks) [![npm downloads](https://img.shields.io/npm/dm/handy-thunks.svg?style=flat-square)](https://www.npmjs.com/package/handy-thunks) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/DScheglov/handy-thunks/blob/master/LICENSE)
 
 Tools for coding with `redux-thunk`
 
