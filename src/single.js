@@ -1,12 +1,12 @@
 import { ensureAsyncCompose } from './helpers/promises';
-import PromiseBuffer from './helpers/promise-buffer';
+import StateManager from './helpers/state-manager';
 import { ensureFunc } from './helpers/funcs';
 
 
 const lazy0 = () => 0;
 
 const single = keySelector => thunk => {
-  const { assign, reset, get } = PromiseBuffer();
+  const { assign, reset, get } = StateManager();
   const getKey = ensureFunc(keySelector, lazy0);
 
   return (...args) => dispatch => {

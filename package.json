@@ -1,6 +1,6 @@
 {
   "name": "handy-thunks",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Tools for coding with redux-thunk",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -30,7 +30,9 @@
     "loading",
     "postponded",
     "single",
-    "withFallback"
+    "fallback",
+    "followedBy",
+    "cleanUp"
   ],
   "author": "Dmitry.Scheglov <dmitry.scheglov@gmail.com>",
   "license": "MIT",
