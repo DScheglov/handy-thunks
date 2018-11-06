@@ -16,31 +16,31 @@ The package provides easy way to create, enhance and compose `thunks` in order t
 
 ### 1. **Thunk** creators:
 
-| Creator | Description |
-|---------|-------------|
-| [createThunk(actionCreators, selectors)(func)](https://github.com/DScheglov/handy-thunks/tree/master/samples/create-thunk) | creates new **thunk** based on regular or async function |
-| [voidThunk](https://github.com/DScheglov/handy-thunks/tree/master/samples/void-thunk) | creates a **thunk** that do nothing |
+| Creator |
+|---------|
+| [createThunk(actionCreators, selectors)(func)](https://github.com/DScheglov/handy-thunks/tree/master/samples/create-thunk) <br/>creates a new **thunk** based on regular or async function |
+| [voidThunk](https://github.com/DScheglov/handy-thunks/tree/master/samples/void-thunk) <br/>creates a **thunk** that do nothing |
 
 ### 2. Flow compositors:
-| Compositor | Description |
-|------------|-------------|
-| [all(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/all) | creates new **thunk** that runs base thunks in parallel |
-| [queue(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/queue) |creates new **thunk** that runs base thunks one by one with arguments of new thunk |
-| [chain(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chain) | create new **thunk** that runs base thunks one by one and passes the result of previous **thunk** to the next one |
+| Compositor |
+|------------|
+| [all(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/all) <br/>creates a new **thunk** that runs base thunks in parallel |
+| [queue(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/queue) <br/>creates a new **thunk** that runs base thunks one by one with arguments of new thunk |
+| [chain(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chain) <br/>creates a new **thunk** that runs base thunks one by one and passes the result of previous **thunk** to the next one |
 
 
 ### 3. **Thunk** decorators:
-| Decorator | Description |
-|-----------|-------------|
-| [connected(selector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/connected) | creates a new **thunk** that dispatches the original one with result returned be specified selector |
-| [loading(startAction, endAction)(...loadingArgs)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/loading) | creates a new **thunk** that dispatches `startAction` before calling original **thunk** and `endAction` after the promise returned by original **thunk** resolves or rejects. |
-| [fallback(fallbackThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/fallback) | creates a new **thunk** that dispatches a `fallbackThunk` in case if `promise` returned by original **thunk** is rejected. |
-| [cleanUp(cleanUpThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/clean-up) | creates a new **thunk** that dispatches a `cleanUpThunk` after `promise` returned by original **thunk** is resolved or rejected. |
-| [onlyIf(predicate)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/only-if) | creates a new **thunk** that dispatches the original one only if `predicate` called with arguments returns `true`. In other case the new **thunk** does nothing. |
-| [chained(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chained) | creates a new **thunk** that dispatches the original one after all promises returned in previous calls are resolved. |
-| [single(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/single) | creates a new **thunk** that prevents dispatching an original thunk if promise returned by the previous call is not resolved yet. |
-| [postponded(delay, keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/postponded) | create a new **thunk** that dispatches the original one in delay specified. If during this delay the new **thunk** will be called again (one or more time), the original thunk will be dispatched with argumetns of last call. |
-| [lazy(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/lazy) | creates a new **thunk** that dispatches the original one, but returns resolved promise not waiting for resolution of original **thunk** promise at all. |
+| Decorator |
+|-----------|
+| [connected(selector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/connected) <br/>creates a new **thunk** that dispatches the original one with result returned be specified selector |
+| [loading(startAction, endAction)(...loadingArgs)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/loading) <br/>creates a new **thunk** that dispatches `startAction` before calling original **thunk** and `endAction` after the promise returned by original **thunk** resolves or rejects. |
+| [fallback(fallbackThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/fallback) <br/>creates a new **thunk** that dispatches a `fallbackThunk` in case if `promise` returned by original **thunk** is rejected. |
+| [cleanUp(cleanUpThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/clean-up) <br/>creates a new **thunk** that dispatches a `cleanUpThunk` after `promise` returned by original **thunk** is resolved or rejected. |
+| [onlyIf(predicate)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/only-if) <br/>creates a new **thunk** that dispatches the original one only if `predicate` called with arguments returns `true`. In other case the new **thunk** does nothing. |
+| [chained(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chained) <br/>creates a new **thunk** that dispatches the original one after all promises returned in previous calls are resolved. |
+| [single(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/single) <br/>creates a new **thunk** that prevents dispatching an original thunk if promise returned by the previous call is not resolved yet. |
+| [postponded(delay, keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/postponded) <br/>create a new **thunk** that dispatches the original one in delay specified. If during this delay the new **thunk** will be called again (one or more time), the original thunk will be dispatched with argumetns of last call. |
+| [lazy(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/lazy) <br/>creates a new **thunk** that dispatches the original one, but returns resolved promise not waiting for resolution of original **thunk** promise at all. |
 
 
 ## Example:
