@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/DScheglov/handy-thunks.svg?branch=master)](https://travis-ci.org/DScheglov/handy-thunks)
+[![Coverage Status](https://coveralls.io/repos/github/DScheglov/handy-thunks/badge.svg?branch=master)](https://coveralls.io/github/DScheglov/handy-thunks?branch=master)
 # handy-thunks
 
 Tools for coding with `redux-thunk`
