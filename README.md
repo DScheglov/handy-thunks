@@ -15,30 +15,31 @@ npm i handy-thunks
 The package provides easy way to create, enhance and compose `thunks` in order to build flow of any complexity by using following tools:
 
 
-|<h3>**1. Thunk creators**</h3>|
-|---------|
-| [createThunk(actionCreators, selectors)(func)](https://github.com/DScheglov/handy-thunks/tree/master/samples/create-thunk) <br/>creates a new **thunk** based on regular or async function |
-| [voidThunk](https://github.com/DScheglov/handy-thunks/tree/master/samples/void-thunk) <br/>creates a **thunk** that do nothing |
+### 1. Thunk creators
+
+- [createThunk(actionCreators, selectors)(func)](https://github.com/DScheglov/handy-thunks/tree/master/samples/create-thunk)
+- [voidThunk](https://github.com/DScheglov/handy-thunks/tree/master/samples/void-thunk)
 
 
-|<h3>**2. Flow compositors**</h3>|
-|------------|
-| [all(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/all) <br/>creates a new **thunk** that runs base thunks in parallel |
-| [queue(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/queue) <br/>creates a new **thunk** that runs base thunks one by one with arguments of new thunk |
-| [chain(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chain) <br/>creates a new **thunk** that runs base thunks one by one and passes the result of previous **thunk** to the next one |
+### 2. Flow compositors
+
+- [all(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/all) 
+- [queue(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/queue)
+- [chain(...thunks)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chain) 
 
 
-|<h3>**3. Thunk decorators**</h3>|
-|-----------|
-| [connected(selector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/connected) <br/>creates a new **thunk** that dispatches the original one with result returned be specified selector |
-| [loading(startAction, endAction)(...loadingArgs)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/loading) <br/>creates a new **thunk** that dispatches `startAction` before calling original **thunk** and `endAction` after the promise returned by original **thunk** resolves or rejects. |
-| [fallback(fallbackThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/fallback) <br/>creates a new **thunk** that dispatches a `fallbackThunk` in case if `promise` returned by original **thunk** is rejected. |
-| [cleanUp(cleanUpThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/clean-up) <br/>creates a new **thunk** that dispatches a `cleanUpThunk` after `promise` returned by original **thunk** is resolved or rejected. |
-| [onlyIf(predicate)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/only-if) <br/>creates a new **thunk** that dispatches the original one only if `predicate` called with arguments returns `true`. In other case the new **thunk** does nothing. |
-| [chained(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chained) <br/>creates a new **thunk** that dispatches the original one after all promises returned in previous calls are resolved. |
-| [single(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/single) <br/>creates a new **thunk** that prevents dispatching an original thunk if promise returned by the previous call is not resolved yet. |
-| [postponded(delay, keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/postponded) <br/>create a new **thunk** that dispatches the original one in delay specified. If during this delay the new **thunk** will be called again (one or more time), the original thunk will be dispatched with argumetns of last call. |
-| [lazy(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/lazy) <br/>creates a new **thunk** that dispatches the original one, but returns resolved promise not waiting for resolution of original **thunk** promise at all. |
+### 3. Thunk decorators
+
+- [connected(selector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/connected) 
+- [loading(startAction, endAction)(...loadingArgs)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/loading)
+- [fallback(fallbackThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/fallback)
+- [followedBy(nextThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/followed-by)
+- [cleanUp(cleaningThunk)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/clean-up)
+- [onlyIf(predicate)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/only-if)
+- [chained(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chained)
+- [single(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/single) 
+- [postponded(delay, keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/postponded)
+- [lazy(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/lazy)
 
 
 ## Example:
