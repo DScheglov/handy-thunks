@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 
-import createThunk from '../src/createThunk';
+import { createThunk } from '../src';
 import idX from '../src/helpers/idX';
 
 import createStore from './__utils__/createStore';

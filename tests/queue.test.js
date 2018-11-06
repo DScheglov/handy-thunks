@@ -1,6 +1,6 @@
 import { createAction } from 'redux-actions';
 
-import queue from '../src/queue';
+import { queue } from '../src';
 
 import createAsyncThunk from './__utils__/createAsyncThunk';
 import createStore from './__utils__/createStore';

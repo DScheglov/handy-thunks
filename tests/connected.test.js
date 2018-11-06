@@ -1,4 +1,4 @@
-import connected from '../src/connected';
+import { connected } from '../src';
 
 import createStore from './__utils__/createStore';
 

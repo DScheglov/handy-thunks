@@ -1,16 +1,17 @@
 import { createAction } from 'redux-actions';
-import { fallback } from '../src';
+import { followedBy } from '../src';
 import createStore from './__utils__/createStore';
 
-describe('decorators.fallback', () => {
+
+describe('decorators.followedBy', () => {
   test('should create a thunk', () => {
     const action = createAction('ACTION');
-    const fail = createAction('FAIL');
+    const success = createAction('SUCCESS');
     const thunk = jest.fn(
       (...args) => dispatch => dispatch(action(...args))
     );
     
-    const newThunk = fallback(fail)(thunk);
+    const newThunk = followedBy(success)(thunk);
     expect(newThunk).toBeInstanceOf(Function);
     expect(newThunk()).toBeInstanceOf(Function);
 
@@ -27,43 +28,44 @@ describe('decorators.fallback', () => {
     ]);
   });
 
-  test('it should call fallback if thunk failed', () => {
-    expect.assertions(2);
-    const fail = createAction('FAIL');
+  test('it should not call followedBy if thunk failed', () => {
+    expect.assertions(3);
+    const success = jest.fn(createAction('followedBy'));
     const thunk = () => () => undefined['field'];
 
-    const newThunk = fallback(fail)(thunk);
+    const newThunk = followedBy(success)(thunk);
     
     const { dispatch, getState } = createStore();
     const promise = dispatch(newThunk());
 
-    return promise.then(
+    return promise.catch(
       err => {
-        expect(err).toMatchObject({ type: 'FAIL' });
-        expect(getState().allActions[0]).toMatchObject({ type: 'FAIL' });
+        expect(err).toBeInstanceOf(TypeError);
+        expect(success.mock.calls).toEqual([]);
+        expect(getState().allActions).toEqual([]);
       }
     );
   });
 
-  test('it should not call fallback if thunk succeeded', () => {
-    expect.assertions(3);
-    const fail = jest.fn(createAction('FAIL'));
+  test('it should call followedBy if thunk succeeded', () => {
+    expect.assertions(2);
+    const success = createAction('SUCCESS');
     const action = createAction('ACTION');
     const thunk = payload => dispatch => dispatch(
       action(payload)
     );
 
-    const newThunk = fallback(fail)(thunk);
+    const newThunk = followedBy(success)(thunk);
     
     const { dispatch, getState } = createStore();
     const promise = dispatch(newThunk());
 
     return promise.then(
       action => {
-        expect(fail.mock.calls).toEqual([]);
-        expect(action).toEqual({ type: 'ACTION' });
+        expect(action).toEqual({ type: 'SUCCESS', payload: { type: 'ACTION' } });
         expect(getState().allActions).toEqual([
           { type: 'ACTION' },
+          { type: 'SUCCESS', payload: { type: 'ACTION' } },
         ]);
       }
     );

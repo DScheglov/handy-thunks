@@ -1,5 +1,4 @@
-import { compose } from 'redux';
-import { ensureAsync } from './helpers/promises';
+import { ensureAsyncCompose } from './helpers/promises';
 
 
 const loading = (start, end) => (...loadingArgs) => thunk => (
@@ -10,9 +9,7 @@ const loading = (start, end) => (...loadingArgs) => thunk => (
       );
     }
 
-    const asyncThunk = ensureAsync(
-      compose(dispatch, thunk)
-    );
+    const asyncThunk = ensureAsyncCompose(dispatch, thunk);
 
     const promise = asyncThunk(...args);
 
