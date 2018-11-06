@@ -55,13 +55,13 @@ import { loadUser, loadContracts, loadOffers } from './thunks';
 const withUserId = connected(state => getUser(state).id);
 const withLoading = loading(startLoading, endLoading)('ALL');
 
-const fetchUserData = queue([
+const fetchUserData = queue(
   loadUser,
-  all([
+  all(
     withUserId(loadContracts),
     withUserId(loadOffers),
-  ]),
-]);
+  ),
+);
 
 export default withLoading(fetchUserData);
 ```
