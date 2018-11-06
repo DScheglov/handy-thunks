@@ -1,6 +1,6 @@
 {
   "name": "handy-thunks",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Tools for coding with redux-thunk",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -10,7 +10,7 @@
     "build:es": "BABEL_ENV=es babel ./src -d ./es",
     "build:prepare": "rm -rf ./lib; rm -rf ./es",
     "build": "npm run build:prepare; npm run build:cjs && npm run build:es",
-    "publish": "npm run build"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
