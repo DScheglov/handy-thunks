@@ -127,7 +127,7 @@ describe('decorators.loading', () => {
   });
 
   test('it should dispatch start and end actions if thunk failed', () => {
-    expect.assertions(2);
+    expect.assertions(4);
     const start = createAction('START');
     const end = createAction('END');
     const action = createAction('ACTION');
@@ -151,11 +151,19 @@ describe('decorators.loading', () => {
       () => managed.reject({ result: new Error('Some Error') })
     );
 
-    return promise.catch(
+    const p = promise.catch(
+      err => {
+        expect(err).toBeInstanceOf(Error);
+        expect(err.message).toBe('Some Error');
+      }
+    );
+
+    // eslint-disable-next-line
+    p.catch(console.log); // suppressing Unhandled exception warning
+
+    return p.then(
       () => {
-        expect(
-          getState().allActions
-        ).toEqual([
+        expect(getState().allActions).toEqual([
           { type: 'START' },
           { type: 'END' }
         ]);
