@@ -1,5 +1,5 @@
 import { withHandler } from './helpers/async-thunk';
 
-const fallowedBy = withHandler('then');
+const followedBy = withHandler('then');
 
-export default fallowedBy;
+export default followedBy;

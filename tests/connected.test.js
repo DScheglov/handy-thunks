@@ -58,7 +58,7 @@ describe('decorators.connected', () => {
     expect(
       thunk.mock.calls[1]
     ).toEqual([
-      [ 'root value', 2, [1, 2, 3], 'hi', 'there' ]
+      [ 'root value', 2, [1, 2, 3], 'hi', 'there' ], 'hi', 'there'
     ]);
   });
 
@@ -91,5 +91,4 @@ describe('decorators.connected', () => {
       { type: 'MY_ACTION', payload: { value: 'the root value' } }
     ]);
   });
-  
 });

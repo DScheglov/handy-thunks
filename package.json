@@ -1,10 +1,11 @@
 {
   "name": "handy-thunks",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Tools for coding with redux-thunk",
   "main": "lib/index.js",
   "module": "es/index.js",
   "scripts": {
+    "jest": "BABEL_ENV=test jest --coverage",
     "test": "BABEL_ENV=test jest --coverage && ./.coveralls.sh",
     "build:cjs": "BABEL_ENV=cjs babel ./src -d ./lib",
     "build:es": "BABEL_ENV=es babel ./src -d ./es",
