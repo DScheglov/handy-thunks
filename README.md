@@ -36,7 +36,7 @@ The package provides easy way to create, enhance and compose `thunks` in order t
 - [onlyIf(predicate)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/only-if)
 - [chained(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/chained)
 - [single(keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/single) 
-- [postponded(delay, keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/postponded)
+- [postponed(delay, keySelector)(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/postponed)
 - [lazy(thunk)](https://github.com/DScheglov/handy-thunks/tree/master/samples/lazy)
 
 

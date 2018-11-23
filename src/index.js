@@ -11,7 +11,8 @@ import loading from './loading';
 import onlyIf from './onlyIf';
 import queue from './queue';
 import single from './single';
-import postponded from './postponded';
+import postponed from './postponed';
+import voidThunk from './voidThunk';
 
 export { all };
 export { chained };
@@ -26,4 +27,5 @@ export { loading };
 export { onlyIf };
 export { queue };
 export { single };
-export { postponded };
+export { postponed };
+export { voidThunk };

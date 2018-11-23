@@ -1,13 +1,13 @@
 import { createAction } from 'redux-actions';
 
-import { postponded } from '../src';
+import { postponed } from '../src';
 import manage from './__utils__/managed';
 import createStore from './__utils__/createStore';
 
-describe('decorators.postponded', () => {
+describe('decorators.postponed', () => {
   test('it should create a new thunk', () => {
     const thunk = () => () => {};
-    const newThunk = postponded()(thunk);
+    const newThunk = postponed()(thunk);
 
     expect(newThunk).toBeInstanceOf(Function);
     expect(newThunk()).toBeInstanceOf(Function);
@@ -24,7 +24,7 @@ describe('decorators.postponded', () => {
     };
 
     const thunk = jest.fn(getManaged);
-    const newThunk = postponded()(thunk);
+    const newThunk = postponed()(thunk);
 
     const { dispatch, getState } = createStore();
 

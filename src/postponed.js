@@ -6,7 +6,7 @@ import TimerState from './helpers/timer-state';
 
 const lazy0 = () => 0;
 
-const postponded = (delay, keySelector) => thunk => {
+const postponed = (delay, keySelector) => thunk => {
   const { assign, get } = StateManager();
   const getKey = ensureFunc(keySelector, lazy0);
 
@@ -23,4 +23,4 @@ const postponded = (delay, keySelector) => thunk => {
   };
 };
 
-export default postponded;
+export default postponed;
