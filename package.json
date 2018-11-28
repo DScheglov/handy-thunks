@@ -66,7 +66,6 @@
     ]
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org",
-    "tag": "betta"
+    "registry": "https://registry.npmjs.org"
   }
 }
