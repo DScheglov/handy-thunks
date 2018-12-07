@@ -1,5 +1,4 @@
-import { bindActionCreators } from 'redux';
-import { bindSelectors } from './helpers/bind-selectors';
+import { bindSelectors, bindActionCreators } from './helpers/bind-redux';
 import idX from './helpers/idX';
 
 const createThunk = (actionCreators = idX, selectors = idX) => func => (
