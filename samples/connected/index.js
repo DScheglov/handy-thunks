@@ -1,1 +1,0 @@
-import { connected } from 'handy-thunks';

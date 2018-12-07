@@ -15,7 +15,7 @@ The package provides easy way to create, enhance and compose `thunks` in order t
 
 ### 1. Thunk creators
 
-- [createThunk(actionCreators, selectors)(func)](https://github.com/DScheglov/handy-thunks/tree/master/samples/create-thunk)
+- [createThunk(actionCreators, selectors)(func)](https://github.com/DScheglov/handy-thunks/tree/master/book/create-thunk.md)
 - [voidThunk](https://github.com/DScheglov/handy-thunks/tree/master/samples/void-thunk)
 
 

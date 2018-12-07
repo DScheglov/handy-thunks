@@ -1,1 +1,0 @@
-import { onlyIf, connected } from 'handy-thunks';

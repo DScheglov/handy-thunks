@@ -1,1 +1,0 @@
-import { createThunk } from 'handy-thunks';
