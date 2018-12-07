@@ -11,20 +11,21 @@
 
 ## [Flow Compositors](compositors/README.md)
 
-- [`all`](compositors/all) 
-- [`chain`](compositors/chain)
-- [`queue`](compositors/queue)
+- [`all`](compositors/all.md) 
+- [`chain`](compositors/chain.md)
+- [`queue`](compositors/queue.md)
 
 ## [Thunk Decorators](decorators/README.md)
 
-- [`chained`](decorators/chained)
-- [`cleanUp`](decorators/clean-up)
-- [`connected`](decorators/connected) 
-- [`fallback`](decorators/fallback)
-- [`followedBy`](decorators/followed-by)
-- [`lazy`](decorators/lazy)
-- [`loading`](decorators/loading)
-- [`onlyIf`](decorators/only-if)
-- [`postponed`](decorators/postponed)
-- [`single`](decorators/single) 
+- [`chained`](decorators/chained.md)
+- [`cleanUp`](decorators/clean-up.md)
+- [`connected`](decorators/connected).md 
+- [`fallback`](decorators/fallback.md)
+- [`followedBy`](decorators/followed-by.md)
+- [`lazy`](decorators/lazy.md)
+- [`loading`](decorators/loading.md)
+- [`onlyIf`](decorators/only-if.md)
+- [`postponed`](decorators/postponed.md)
+- [`single`](decorators/single.md)
+
 
