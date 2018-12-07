@@ -1,4 +1,4 @@
-# `createThunk(actionCreators, selectors)(thunk)`
+# `createThunk(actionCreators, selectors)(func)`
 
 ```
 createThunk: ([actionCreators], [selectors]) -> (func: Func<R>) -> Thunk<R>

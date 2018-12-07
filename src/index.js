@@ -13,6 +13,7 @@ import queue from './queue';
 import single from './single';
 import postponed from './postponed';
 import voidThunk from './voidThunk';
+import select from './select';
 
 export { all };
 export { chained };
@@ -29,3 +30,4 @@ export { queue };
 export { single };
 export { postponed };
 export { voidThunk };
+export { select };
