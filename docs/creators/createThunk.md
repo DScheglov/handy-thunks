@@ -1,7 +1,7 @@
 # `createThunk(actionCreators, selectors)(thunk)`
 
 ```
-createThunk: ([actionCreators], [selectors]) -> func -> Thunk
+createThunk: ([actionCreators], [selectors]) -> (func: Func<R>) -> Thunk<R>
 ```
 
 Creates a new **thunk** based on regular or async function.
