@@ -19,7 +19,7 @@
 
 - [`chained`](decorators/chained.md)
 - [`cleanUp`](decorators/clean-up.md)
-- [`connected`](decorators/connected).md 
+- [`connected`](decorators/connected.md)
 - [`fallback`](decorators/fallback.md)
 - [`followedBy`](decorators/followed-by.md)
 - [`lazy`](decorators/lazy.md)
