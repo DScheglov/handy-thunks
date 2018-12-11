@@ -8,7 +8,7 @@ import manage from './__utils__/managed';
 
 describe('flow.queue', () => {
   test('should be possible to compose two thunks', () => {
-    expect.assertions(8);
+    expect.assertions(9);
 
     const success1 = createAction('SUCCESS::1');
     const success2 = createAction('SUCCESS::2');
@@ -32,33 +32,22 @@ describe('flow.queue', () => {
     // assertion 2: checking if dispatching newThunk returns a Promise
     expect(promise).toBeInstanceOf(Promise);
 
-    promise = promise.then(
-      () => {
-        // assertion 7: both thunks should be called
-        expect([
-          thunk1.mock.calls,
-          thunk2.mock.calls,
-        ]).toEqual([ [['first']], [['first']] ]);
-
-
-        // assertion 8: checking if both actions are dispatched
-        expect(getState().allActions).toEqual([
-          { type: 'SUCCESS::1', payload: 'first' },
-          { type: 'SUCCESS::2', payload: 'second' },
-        ]);
-      }
-    );
+    // assertion 3: thunk1 has been called in current task, and thunk2 hasn't
+    expect([
+      thunk1.mock.calls,
+      thunk2.mock.calls,
+    ]).toEqual([ [['first']], [] ]);
     
     setImmediate(
       () => {
-        // assertion 3: state should not be changed
+        // assertion 4: state should not be changed
         expect(getState().allActions).toEqual([]);
 
-        // assertion 4: the first thunk should be called, but the second shoud be not
+        // assertion 5: the first thunk should be called, but the second shoud be not
         expect([
           thunk1.mock.calls,
-          thunk2.mock.calls.length,
-        ]).toEqual([ [['first']], 0]);
+          thunk2.mock.calls,
+        ]).toEqual([ [['first']], [] ]);
 
         fn1.resolve();
 
@@ -77,6 +66,22 @@ describe('flow.queue', () => {
             ]);
           });
       });
+
+    promise = promise.then(
+      () => {
+        // assertion 7: both thunks should be called
+        expect([
+          thunk1.mock.calls,
+          thunk2.mock.calls,
+        ]).toEqual([ [['first']], [['first']] ]);
+  
+        // assertion 8: checking if both actions are dispatched
+        expect(getState().allActions).toEqual([
+          { type: 'SUCCESS::1', payload: 'first' },
+          { type: 'SUCCESS::2', payload: 'second' },
+        ]);
+      }
+    );
 
     return promise;
   });
