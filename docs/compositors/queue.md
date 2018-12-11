@@ -38,3 +38,5 @@ dispatch(
 ## Returns:
 
 - **thunk**: `AsyncThunk<*>` -- the new thunk.
+
+[**Live sample**](https://codesandbox.io/s/github/DScheglov/deco-thunks/tree/queue-sample/?module=%2Fsrc%2FAppToolBar%2Fthunks.js) at codesandbox.io
