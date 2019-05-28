@@ -14,7 +14,8 @@ const loading = (start, end) => (...loadingArgs) => thunk => (
     const promise = asyncThunk(...args);
 
     if (typeof end === 'function') {
-      promise.finally(
+      // Prventing promise leaks by returning new promise
+      return promise.finally(
         () => dispatch(end(...loadingArgs))
       );
     }

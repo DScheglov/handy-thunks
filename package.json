@@ -1,6 +1,6 @@
 {
   "name": "handy-thunks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tools for coding with redux-thunk",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -50,7 +50,7 @@
     "coveralls": "^3.0.2",
     "eslint": "^5.7.0",
     "eslint-plugin-jest": "^21.26.0",
-    "jest": "^23.6.0",
+    "jest": "^24.8.0",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.3",
     "redux-thunk": "^2.3.0"
